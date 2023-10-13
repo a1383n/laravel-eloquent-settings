@@ -7,8 +7,6 @@ use Illuminate\Contracts\Container\BindingResolutionException;
 use Illuminate\Database\Eloquent\Model;
 use LaravelEloquentSettings\Contracts\SettingHandlerInterface;
 use LaravelEloquentSettings\Contracts\SettingRepositoryInterface;
-use LaravelEloquentSettings\Models\EloquentSetting;
-use LaravelEloquentSettings\Traits\HasSettings;
 
 /**
  * Class EloquentSettingManager
