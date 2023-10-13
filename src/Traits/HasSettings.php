@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use LaravelEloquentSettings\EloquentSettings;
 use LaravelEloquentSettings\Models\EloquentSetting;
-use LaravelEloquentSettings\SettingDefenation;
-use LaravelEloquentSettings\SettingDefenationEntity;
+use LaravelEloquentSettings\SettingDefinition;
+use LaravelEloquentSettings\SettingDefinitionEntity;
 use LaravelEloquentSettings\SettingHandler;
 use LaravelEloquentSettings\SettingResolver;
 use LaravelEloquentSettings\SettingSetter;
@@ -17,7 +17,7 @@ use LaravelEloquentSettings\SettingSetter;
  */
 trait HasSettings
 {
-    protected ?SettingDefenation $settingDefenation = null;
+    protected ?SettingDefinition $settingDefenation = null;
     private ?SettingHandler $settingHandler = null;
 
     public function settings(): MorphMany
@@ -28,10 +28,10 @@ trait HasSettings
     /**
      * @return mixed
      */
-    protected function getSettingDefentaion(): SettingDefenation
+    protected function getSettingDefentaion(): SettingDefinition
     {
         if ($this->settingDefenation === null) {
-            $this->settingDefenation = new SettingDefenation();
+            $this->settingDefenation = new SettingDefinition();
 
             $this->definedSettings($this->settingDefenation);
         }
@@ -44,7 +44,7 @@ trait HasSettings
         return $this->settingHandler ?? EloquentSettings::getHandler($this);
     }
 
-    public function getSettingDefenationByName(string $name): SettingDefenationEntity
+    public function getSettingDefenationByName(string $name): SettingDefinitionEntity
     {
         return isset($this->getSettingDefentaion()->getDefenations()[$name])
             ? $this->getSettingDefentaion()->getDefenations()[$name]->toEntity()
@@ -56,7 +56,7 @@ trait HasSettings
         return (new SettingResolver($this->getHandler()))($this->getSettingDefenationByName($name));
     }
 
-    public function setSettingValueByName(string $name, mixed $value): void
+    public function setSettingValueByName(string $name, mixed $value = null): void
     {
         (new SettingSetter($this->getHandler()))($this->getSettingDefenationByName($name), $value);
     }

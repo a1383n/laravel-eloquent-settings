@@ -6,7 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Facade;
 
 /**
- * @method static getHandler(Model $model)
+ * Class EloquentSettings
+ *
+ * Facade for accessing the EloquentSettings manager.
+ *
+ * @method static EloquentSettingManager getHandler(Model $model)
+ *
+ * @package LaravelEloquentSettings
  */
 class EloquentSettings extends Facade
 {

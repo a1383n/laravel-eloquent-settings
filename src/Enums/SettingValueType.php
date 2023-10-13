@@ -2,6 +2,11 @@
 
 namespace LaravelEloquentSettings\Enums;
 
+/**
+ * Enum SettingValueType
+ *
+ * This enum represents the possible types for setting values.
+ */
 enum SettingValueType: string
 {
     case STRING = 'string';

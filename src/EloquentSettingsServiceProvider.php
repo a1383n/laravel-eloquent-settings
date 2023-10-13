@@ -7,8 +7,20 @@ use LaravelEloquentSettings\Contracts\SettingHandlerInterface;
 use LaravelEloquentSettings\Contracts\SettingRepositoryInterface;
 use LaravelEloquentSettings\Repositories\SettingRepository;
 
+/**
+ * Class EloquentSettingsServiceProvider
+ *
+ * Laravel service provider for the EloquentSettings package.
+ *
+ * @package LaravelEloquentSettings
+ */
 class EloquentSettingsServiceProvider extends ServiceProvider
 {
+    /**
+     * Register bindings in the container.
+     *
+     * @return void
+     */
     public function register(): void
     {
         $this->mergeConfigFrom(__DIR__ . '/../config/eloquent_settings.php', 'eloquent_settings');
@@ -21,12 +33,19 @@ class EloquentSettingsServiceProvider extends ServiceProvider
 
     /**
      * Bootstrap services.
+     *
+     * @return void
      */
     public function boot(): void
     {
         $this->registerPublishables();
     }
 
+    /**
+     * Register the package's publishable resources.
+     *
+     * @return void
+     */
     protected function registerPublishables(): void
     {
         if (!$this->app->runningInConsole()) {

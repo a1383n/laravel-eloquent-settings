@@ -2,9 +2,20 @@
 
 namespace LaravelEloquentSettings\Contracts;
 
-use LaravelEloquentSettings\SettingDefenation;
+use LaravelEloquentSettings\SettingDefinition;
 
+/**
+ * Interface HasSettingsInterface
+ *
+ * This interface defines the contract for models that have settings.
+ */
 interface HasSettingsInterface
 {
-    public function definedSettings(SettingDefenation $defenation): void;
+    /**
+     * Define settings for the model.
+     *
+     * @param SettingDefinition $definition
+     * @return void
+     */
+    public function defineSettings(SettingDefinition $definition): void;
 }

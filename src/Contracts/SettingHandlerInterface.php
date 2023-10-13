@@ -2,13 +2,38 @@
 
 namespace LaravelEloquentSettings\Contracts;
 
-use LaravelEloquentSettings\SettingDefenationEntity;
+use LaravelEloquentSettings\SettingDefinitionEntity;
 
+/**
+ * Interface SettingHandlerInterface
+ *
+ * This interface defines the contract for handling settings.
+ */
 interface SettingHandlerInterface
 {
-    public function createSetting(SettingDefenationEntity $entity, mixed $value): void;
+    /**
+     * Create a new setting.
+     *
+     * @param SettingDefinitionEntity $entity
+     * @param mixed $value
+     * @return void
+     */
+    public function createSetting(SettingDefinitionEntity $entity, mixed $value): void;
 
-    public function updateSetting(SettingDefenationEntity $entity, mixed $value): void;
+    /**
+     * Update an existing setting.
+     *
+     * @param SettingDefinitionEntity $entity
+     * @param mixed $value
+     * @return void
+     */
+    public function updateSetting(SettingDefinitionEntity $entity, mixed $value): void;
 
-    public function getSetting(SettingDefenationEntity $entity): EloquentSettingModelInterface;
+    /**
+     * Get the value of a setting.
+     *
+     * @param SettingDefinitionEntity $entity
+     * @return EloquentSettingModelInterface
+     */
+    public function getSetting(SettingDefinitionEntity $entity): EloquentSettingModelInterface;
 }

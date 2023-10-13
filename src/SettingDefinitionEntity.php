@@ -4,8 +4,25 @@ namespace LaravelEloquentSettings;
 
 use LaravelEloquentSettings\Enums\SettingValueType;
 
-class SettingDefenationEntity
+/**
+ * Class SettingDefinitionEntity
+ *
+ * Represents a single setting definition entity.
+ *
+ * @package LaravelEloquentSettings
+ */
+class SettingDefinitionEntity
 {
+    /**
+     * SettingDefinitionEntity constructor.
+     *
+     * @param string $name
+     * @param SettingValueType $type
+     * @param mixed $default
+     * @param bool $insertOnDefault
+     * @param bool $nullable
+     * @param array|null $customValidationRules
+     */
     public function __construct(
         public readonly string           $name,
         public readonly SettingValueType $type,

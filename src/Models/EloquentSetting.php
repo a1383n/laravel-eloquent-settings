@@ -5,6 +5,13 @@ namespace LaravelEloquentSettings\Models;
 use Illuminate\Database\Eloquent\Model;
 use LaravelEloquentSettings\Contracts\EloquentSettingModelInterface;
 
+/**
+ * Class EloquentSetting
+ *
+ * Eloquent model representing a setting.
+ *
+ * @package LaravelEloquentSettings\Models
+ */
 class EloquentSetting extends Model implements EloquentSettingModelInterface
 {
     protected $table = 'eloquent_settings';
@@ -20,6 +27,7 @@ class EloquentSetting extends Model implements EloquentSettingModelInterface
 
     public function __construct(array $attributes = [])
     {
+        // Set the table name from the configuration or use the default value
         $this->table = config('eloquent_settings.table_name', 'eloquent_settings');
 
         parent::__construct($attributes);

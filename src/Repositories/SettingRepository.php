@@ -9,16 +9,30 @@ use LaravelEloquentSettings\Contracts\SettingRepositoryInterface;
 use LaravelEloquentSettings\Enums\SettingValueType;
 use LaravelEloquentSettings\Models\EloquentSetting;
 
+/**
+ * Class SettingRepository
+ *
+ * Repository for managing and retrieving Eloquent settings.
+ *
+ * @package LaravelEloquentSettings\Repositories
+ */
 class SettingRepository implements SettingRepositoryInterface
 {
+    /**
+     * SettingRepository constructor.
+     *
+     * @param MorphMany $morphManyRelation The morphMany relation for the settings.
+     */
     public function __construct(protected readonly MorphMany $morphManyRelation)
     {
         //
     }
 
     /**
-     * @param string $name
-     * @return MorphMany<EloquentSetting>
+     * Get the query for a setting by name.
+     *
+     * @param string $name The name of the setting.
+     * @return MorphMany<EloquentSetting> The morphMany relation query.
      */
     protected function getSettingByNameQuery(string $name): MorphMany
     {
@@ -26,25 +40,34 @@ class SettingRepository implements SettingRepositoryInterface
             ->where('name', '=', $name);
     }
 
+    /**
+     * @inheritDoc
+     */
     public function getSettingByName(string $name): EloquentSettingModelInterface
     {
         return $this->getSettingByNameQuery($name)
-            ->first(['value']) ?? throw new ModelNotFoundException();
+            ->firstOrFail(['value']);
     }
 
+    /**
+     * @inheritDoc
+     */
     public function updateSettingByName(string $name, SettingValueType $type, mixed $value): bool|EloquentSettingModelInterface
     {
         $result = $this->getSettingByNameQuery($name)
             ->update(['value' => $value]);
 
         if ($result !== 1) {
-            // Model not exists try to create that
+            // Model not exists, try to create it
             return $this->createSettingByName($name, $type, $value);
         } else {
             return true;
         }
     }
 
+    /**
+     * @inheritDoc
+     */
     public function createSettingByName(string $name, SettingValueType $type, mixed $value): EloquentSettingModelInterface
     {
         $model = (new EloquentSetting(['name' => $name]))
