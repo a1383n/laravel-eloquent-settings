@@ -31,7 +31,7 @@ class SettingResolver implements SettingResolverInterface
     {
         try {
             return $this->handler->getSetting($entity)
-                ->mergeCasts(['value' => $entity->type->value])
+                ->setType($entity->type)
                 ->getValue();
         } catch (ModelNotFoundException) {
             // If the setting does not exist, create it with the default value after return response

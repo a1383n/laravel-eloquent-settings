@@ -2,6 +2,7 @@
 
 namespace LaravelEloquentSettings;
 
+use Illuminate\Contracts\Validation\ValidationRule;
 use LaravelEloquentSettings\Enums\SettingValueType;
 
 /**
@@ -18,6 +19,10 @@ class SettingDefinitionItem
     protected mixed $default = null;
     protected bool $insertOnDefault = true;
     protected bool $nullable = false;
+
+    /**
+     * @var array<string|ValidationRule>|null
+     */
     protected ?array $customValidationRules = null;
 
     /**
@@ -94,7 +99,7 @@ class SettingDefinitionItem
     /**
      * Set custom validation rules for the setting.
      *
-     * @param array $rules
+     * @param array<string|ValidationRule> $rules
      * @return $this
      */
     public function validationRules(array $rules): self

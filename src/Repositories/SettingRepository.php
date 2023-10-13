@@ -20,7 +20,7 @@ class SettingRepository implements SettingRepositoryInterface
     /**
      * SettingRepository constructor.
      *
-     * @param MorphMany $morphManyRelation The morphMany relation for the settings.
+     * @param MorphMany<EloquentSetting> $morphManyRelation The morphMany relation for the settings.
      */
     public function __construct(protected readonly MorphMany $morphManyRelation)
     {
@@ -69,6 +69,9 @@ class SettingRepository implements SettingRepositoryInterface
      */
     public function createSettingByName(string $name, SettingValueType $type, mixed $value): EloquentSettingModelInterface
     {
+        /**
+         * @phpstan-ignore-next-line
+         */
         $model = (new EloquentSetting(['name' => $name]))
             ->mergeCasts(['value' => $type->value])
             ->setAttribute('value', $value)

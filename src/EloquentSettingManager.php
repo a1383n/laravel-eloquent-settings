@@ -7,6 +7,8 @@ use Illuminate\Contracts\Container\BindingResolutionException;
 use Illuminate\Database\Eloquent\Model;
 use LaravelEloquentSettings\Contracts\SettingHandlerInterface;
 use LaravelEloquentSettings\Contracts\SettingRepositoryInterface;
+use LaravelEloquentSettings\Models\EloquentSetting;
+use LaravelEloquentSettings\Traits\HasSettings;
 
 /**
  * Class EloquentSettingManager
@@ -33,7 +35,7 @@ class EloquentSettingManager
         return $container->make(
             SettingHandlerInterface::class,
             [
-                'repository' => $container->make(SettingRepositoryInterface::class, ['morphManyRelation' => $model->settings()]),
+                'repository' => $container->make(SettingRepositoryInterface::class, ['morphManyRelation' => $model->{'settings'}()]),
             ]
         );
     }

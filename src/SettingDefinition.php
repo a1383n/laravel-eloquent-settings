@@ -12,7 +12,7 @@ namespace LaravelEloquentSettings;
 class SettingDefinition
 {
     /**
-     * @var array
+     * @var array<string, SettingDefinitionItem>
      */
     protected array $definitions = [];
 
@@ -30,7 +30,7 @@ class SettingDefinition
     /**
      * Get all defined setting definitions.
      *
-     * @return array
+     * @return array<string, SettingDefinitionItem>
      */
     public function getDefinitions(): array
     {
