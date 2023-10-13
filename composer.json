@@ -1,0 +1,72 @@
+{
+    "name": "a1383n/laravel-eloquent-settings",
+    "description": "Easily manage model-specific settings in Laravel with Laravel Eloquent Settings—a versatile package for streamlined configuration.",
+    "homepage": "https://github.com/a1383n/laravel-eloquent-settings",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "LaravelEloquentSettings\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/",
+            "Workbench\\App\\": "workbench/app/",
+            "Workbench\\Database\\Factories\\": "workbench/database/factories/",
+            "Workbench\\Database\\Seeders\\": "workbench/database/seeders/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Amirmohammad Nafariyeh",
+            "email": "amirsobhan1553@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "extra": {
+        "laravel": {
+            "providers": [
+                "LaravelEloquentSettings\\EloquentSettingsServiceProvider"
+            ]
+        }
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    },
+    "require": {
+        "php": "^8.1",
+        "laravel/framework": "^9.0 || ^10.0"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^3.26",
+        "nunomaduro/larastan": "^2.0",
+        "orchestra/testbench": "^7.0|^8.0",
+        "pestphp/pest": "^1.23|^2.18",
+        "phpstan/phpstan": "^1.10"
+    },
+    "scripts": {
+        "analyse": "vendor/bin/phpstan analyse",
+        "baseline": "vendor/bin/phpstan analyse --generate-baseline",
+        "format": "vendor/bin/php-cs-fixer fix --allow-risky=yes",
+        "test": "vendor/bin/pest",
+        "post-autoload-dump": [
+            "@clear",
+            "@prepare"
+        ],
+        "clear": "@php vendor/bin/testbench package:purge-skeleton --ansi",
+        "prepare": "@php vendor/bin/testbench package:discover --ansi",
+        "build": "@php vendor/bin/testbench workbench:build --ansi",
+        "serve": [
+            "@build",
+            "@php vendor/bin/testbench serve"
+        ],
+        "lint": [
+            "@php vendor/bin/phpstan analyse"
+        ]
+    }
+}
