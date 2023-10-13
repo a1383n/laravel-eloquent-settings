@@ -17,6 +17,13 @@
     ],
     "minimum-stability": "dev",
     "prefer-stable": true,
+    "extra": {
+        "laravel": {
+            "providers": [
+                "LaravelEloquentSettings\\EloquentSettingsServiceProvider"
+            ]
+        }
+    },
     "config": {
         "sort-packages": true
     },
