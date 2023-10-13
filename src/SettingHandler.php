@@ -66,7 +66,7 @@ class SettingHandler implements SettingHandlerInterface
      */
     private function validateValue(SettingDefinitionEntity $entity, mixed $value): void
     {
-        $rules = array_merge(['present', $entity->type->value], $entity->customValidationRules ?? []);
+        $rules = array_merge([$entity->nullable ? 'nullable' : 'present', $entity->type->value], $entity->customValidationRules ?? []);
 
         $validator = Validator::make(['value' => $value], ['value' => $rules]);
 
