@@ -18,11 +18,11 @@ class EloquentSetting extends Model implements EloquentSettingModelInterface
 
     protected $fillable = [
         'name',
-        'value'
+        'value',
     ];
 
     protected $casts = [
-        'value' => 'string'
+        'value' => 'string',
     ];
 
     public function __construct(array $attributes = [])

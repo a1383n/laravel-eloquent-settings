@@ -33,7 +33,7 @@ class EloquentSettingManager
         return $container->make(
             SettingHandlerInterface::class,
             [
-                'repository' => $container->make(SettingRepositoryInterface::class, ['morphManyRelation' => $model->settings()])
+                'repository' => $container->make(SettingRepositoryInterface::class, ['morphManyRelation' => $model->settings()]),
             ]
         );
     }

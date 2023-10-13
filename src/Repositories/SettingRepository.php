@@ -2,7 +2,6 @@
 
 namespace LaravelEloquentSettings\Repositories;
 
-use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use LaravelEloquentSettings\Contracts\EloquentSettingModelInterface;
 use LaravelEloquentSettings\Contracts\SettingRepositoryInterface;

@@ -30,8 +30,7 @@ class SettingDefinitionEntity
         public readonly bool             $insertOnDefault = true,
         public readonly bool             $nullable = false,
         public readonly ?array           $customValidationRules = null
-    )
-    {
+    ) {
         //
     }
 }

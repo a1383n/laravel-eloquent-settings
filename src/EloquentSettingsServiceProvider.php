@@ -48,7 +48,7 @@ class EloquentSettingsServiceProvider extends ServiceProvider
      */
     protected function registerPublishables(): void
     {
-        if (!$this->app->runningInConsole()) {
+        if (! $this->app->runningInConsole()) {
             return;
         }
 

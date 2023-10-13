@@ -35,7 +35,7 @@ class SettingResolver implements SettingResolverInterface
                 ->getValue();
         } catch (ModelNotFoundException) {
             // If the setting does not exist, create it with the default value after return response
-            app()->terminating(fn() => $this->handler->createSetting($entity, $entity->default));
+            app()->terminating(fn () => $this->handler->createSetting($entity, $entity->default));
 
             return $entity->default;
         }
