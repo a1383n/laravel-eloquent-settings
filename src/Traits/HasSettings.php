@@ -17,7 +17,7 @@ use LaravelEloquentSettings\SettingSetter;
  */
 trait HasSettings
 {
-    protected ?SettingDefinition $settingDefenation = null;
+    protected ?SettingDefinition $settingDefinition = null;
     private ?SettingHandler $settingHandler = null;
 
     public function settings(): MorphMany
@@ -28,15 +28,15 @@ trait HasSettings
     /**
      * @return mixed
      */
-    protected function getSettingDefentaion(): SettingDefinition
+    protected function getSettingDefinition(): SettingDefinition
     {
-        if ($this->settingDefenation === null) {
-            $this->settingDefenation = new SettingDefinition();
+        if ($this->settingDefinition === null) {
+            $this->settingDefinition = new SettingDefinition();
 
-            $this->definedSettings($this->settingDefenation);
+            $this->defineSettings($this->settingDefinition);
         }
 
-        return $this->settingDefenation;
+        return $this->settingDefinition;
     }
 
     private function getHandler(): SettingHandler
@@ -44,20 +44,20 @@ trait HasSettings
         return $this->settingHandler ?? EloquentSettings::getHandler($this);
     }
 
-    public function getSettingDefenationByName(string $name): SettingDefinitionEntity
+    public function getSettingDefinitionByName(string $name): SettingDefinitionEntity
     {
-        return isset($this->getSettingDefentaion()->getDefenations()[$name])
-            ? $this->getSettingDefentaion()->getDefenations()[$name]->toEntity()
+        return isset($this->getSettingDefinition()->getDefinitions()[$name])
+            ? $this->getSettingDefinition()->getDefinitions()[$name]->toEntity()
             : throw new \Exception(sprintf('(%s) setting not defined for this model', $name));
     }
 
     public function getSettingValueByName(string $name): mixed
     {
-        return (new SettingResolver($this->getHandler()))($this->getSettingDefenationByName($name));
+        return (new SettingResolver($this->getHandler()))($this->getSettingDefinitionByName($name));
     }
 
     public function setSettingValueByName(string $name, mixed $value = null): void
     {
-        (new SettingSetter($this->getHandler()))($this->getSettingDefenationByName($name), $value);
+        (new SettingSetter($this->getHandler()))($this->getSettingDefinitionByName($name), $value);
     }
 }
