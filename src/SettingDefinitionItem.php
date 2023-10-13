@@ -15,7 +15,7 @@ class SettingDefinitionItem
 {
     protected string $name;
     protected SettingValueType $type;
-    protected mixed $default;
+    protected mixed $default = null;
     protected bool $insertOnDefault = true;
     protected bool $nullable = false;
     protected ?array $customValidationRules = null;
