@@ -1,0 +1,27 @@
+{
+    "name": "a1383n/laravel-eloquent-settings",
+    "description": "Easily manage model-specific settings in Laravel with Laravel Eloquent Settings—a versatile package for streamlined configuration.",
+    "homepage": "https://github.com/a1383n/laravel-eloquent-settings",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "LaravelEloquentSettings\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Amirmohammad Nafariyeh",
+            "email": "amirsobhan1553@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "config": {
+        "sort-packages": true
+    },
+    "require": {
+        "php": "^8.1",
+        "laravel/framework": "^9.0 || ^10.0"
+    }
+}
