@@ -7,11 +7,9 @@ use LaravelEloquentSettings\Contracts\EloquentSettingModelInterface;
 use LaravelEloquentSettings\Enums\SettingValueType;
 
 /**
- * Class EloquentSetting
+ * Class EloquentSetting.
  *
  * Eloquent model representing a setting.
- *
- * @package LaravelEloquentSettings\Models
  */
 class EloquentSetting extends Model implements EloquentSettingModelInterface
 {

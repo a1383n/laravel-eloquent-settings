@@ -9,11 +9,9 @@ use LaravelEloquentSettings\Contracts\SettingHandlerInterface;
 use LaravelEloquentSettings\Contracts\SettingRepositoryInterface;
 
 /**
- * Class SettingHandler
+ * Class SettingHandler.
  *
  * Handles the creation, update, and retrieval of settings.
- *
- * @package LaravelEloquentSettings
  */
 class SettingHandler implements SettingHandlerInterface
 {
@@ -59,10 +57,11 @@ class SettingHandler implements SettingHandlerInterface
      * Validate the value of a setting.
      *
      * @param SettingDefinitionEntity $entity
-     * @param mixed $value
-     * @return void
+     * @param mixed                   $value
      *
      * @throws ValidationException|\Throwable
+     *
+     * @return void
      */
     private function validateValue(SettingDefinitionEntity $entity, mixed $value): void
     {

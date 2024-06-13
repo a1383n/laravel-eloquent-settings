@@ -6,11 +6,9 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
 use LaravelEloquentSettings\Contracts\SettingResolverInterface;
 
 /**
- * Class SettingResolver
+ * Class SettingResolver.
  *
  * Resolves the value of a setting. If the setting does not exist, it creates the setting with the default value.
- *
- * @package LaravelEloquentSettings
  */
 class SettingResolver implements SettingResolverInterface
 {

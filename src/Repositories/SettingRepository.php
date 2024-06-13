@@ -9,11 +9,9 @@ use LaravelEloquentSettings\Enums\SettingValueType;
 use LaravelEloquentSettings\Models\EloquentSetting;
 
 /**
- * Class SettingRepository
+ * Class SettingRepository.
  *
  * Repository for managing and retrieving Eloquent settings.
- *
- * @package LaravelEloquentSettings\Repositories
  */
 class SettingRepository implements SettingRepositoryInterface
 {
@@ -31,6 +29,7 @@ class SettingRepository implements SettingRepositoryInterface
      * Get the query for a setting by name.
      *
      * @param string $name The name of the setting.
+     *
      * @return MorphMany<EloquentSetting> The morphMany relation query.
      */
     protected function getSettingByNameQuery(string $name): MorphMany

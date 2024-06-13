@@ -3,7 +3,7 @@
 namespace LaravelEloquentSettings\Enums;
 
 /**
- * Enum SettingValueType
+ * Enum SettingValueType.
  *
  * This enum represents the possible types for setting values.
  */
