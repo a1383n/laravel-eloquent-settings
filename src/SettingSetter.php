@@ -26,7 +26,7 @@ class SettingSetter implements SettingSetterInterface
      */
     public function __invoke(SettingDefinitionEntity $entity, mixed $value = null): void
     {
-        if ($value === null && !$entity->nullable) {
+        if ($value === null && ! $entity->nullable) {
             throw new \Exception(sprintf('(%s) setting is not nullable', $entity->name));
         }
 
