@@ -13,7 +13,7 @@ use LaravelEloquentSettings\SettingResolver;
 use LaravelEloquentSettings\SettingSetter;
 
 /**
- * Trait HasSettings
+ * Trait HasSettings.
  *
  * This trait is designed to be used in Eloquent models that require dynamic settings management.
  *
@@ -62,9 +62,9 @@ trait HasSettings
      *
      * @param string $name The name of the setting.
      *
-     * @return SettingDefinitionEntity
-     *
      * @throws \InvalidArgumentException When the setting is not defined for this model.
+     *
+     * @return SettingDefinitionEntity
      */
     public function getSettingDefinitionByName(string $name): SettingDefinitionEntity
     {
@@ -88,8 +88,8 @@ trait HasSettings
     /**
      * Sets the value of a setting by name.
      *
-     * @param string $name The name of the setting.
-     * @param mixed $value The value to set.
+     * @param string $name  The name of the setting.
+     * @param mixed  $value The value to set.
      *
      * @return void
      */

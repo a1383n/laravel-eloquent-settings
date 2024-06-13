@@ -9,11 +9,9 @@ use LaravelEloquentSettings\Contracts\SettingHandlerInterface;
 use LaravelEloquentSettings\Contracts\SettingRepositoryInterface;
 
 /**
- * Class EloquentSettingManager
+ * Class EloquentSettingManager.
  *
  * Manager for handling Eloquent model settings.
- *
- * @package LaravelEloquentSettings
  */
 class EloquentSettingManager
 {
@@ -22,9 +20,9 @@ class EloquentSettingManager
      *
      * @param Model $model
      *
-     * @return SettingHandlerInterface
-     *
      * @throws BindingResolutionException
+     *
+     * @return SettingHandlerInterface
      */
     public function getHandler(Model $model): SettingHandlerInterface
     {

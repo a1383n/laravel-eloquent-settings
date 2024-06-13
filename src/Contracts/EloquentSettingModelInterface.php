@@ -5,7 +5,7 @@ namespace LaravelEloquentSettings\Contracts;
 use LaravelEloquentSettings\Enums\SettingValueType;
 
 /**
- * Interface EloquentSettingModelInterface
+ * Interface EloquentSettingModelInterface.
  *
  * This interface defines the contract that EloquentSetting models should adhere to.
  */
@@ -26,7 +26,7 @@ interface EloquentSettingModelInterface
     public function getValue(): mixed;
 
     /**
-     * Set the value type
+     * Set the value type.
      *
      * @param SettingValueType $type
      *

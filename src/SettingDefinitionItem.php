@@ -6,11 +6,9 @@ use Illuminate\Contracts\Validation\ValidationRule;
 use LaravelEloquentSettings\Enums\SettingValueType;
 
 /**
- * Class SettingDefinitionItem
+ * Class SettingDefinitionItem.
  *
  * Represents a single setting definition item.
- *
- * @package LaravelEloquentSettings
  */
 class SettingDefinitionItem
 {
@@ -39,6 +37,7 @@ class SettingDefinitionItem
      * Create a new instance of SettingDefinitionItem with the specified name.
      *
      * @param string $name
+     *
      * @return SettingDefinitionItem
      */
     public static function name(string $name): self
@@ -50,6 +49,7 @@ class SettingDefinitionItem
      * Set the type of the setting.
      *
      * @param SettingValueType $type
+     *
      * @return $this
      */
     public function type(SettingValueType $type): self
@@ -63,6 +63,7 @@ class SettingDefinitionItem
      * Set the default value of the setting.
      *
      * @param mixed $default
+     *
      * @return $this
      */
     public function default(mixed $default): self
@@ -100,6 +101,7 @@ class SettingDefinitionItem
      * Set custom validation rules for the setting.
      *
      * @param array<string|ValidationRule> $rules
+     *
      * @return $this
      */
     public function validationRules(array $rules): self

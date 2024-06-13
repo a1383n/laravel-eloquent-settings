@@ -3,11 +3,9 @@
 namespace LaravelEloquentSettings;
 
 /**
- * Class SettingDefinition
+ * Class SettingDefinition.
  *
  * Represents a collection of setting definitions.
- *
- * @package LaravelEloquentSettings
  */
 class SettingDefinition
 {
@@ -20,6 +18,7 @@ class SettingDefinition
      * Define a new setting.
      *
      * @param string $name
+     *
      * @return SettingDefinitionItem
      */
     public function define(string $name): SettingDefinitionItem
